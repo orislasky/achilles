@@ -51,10 +51,18 @@ else:
 
 
 if(report == ''):
-  print('Nice job! Your HTML document is secure!')
+  report += 'Nice job! Your HTML document is secure!\n'
 else:
-  print('Vulnerability Report is as follows:\n')
-  print('==================================\n\n')
-  print(report)
-
+  header =  'Vulnerability Report is as follows:\n'
+  header += '==================================\n\n'
+ 
+  report = header + report
+ 
+print(report)
+ 
+if(args.output):
+  f = open(args.output, 'w')
+  f.write(report)
+  f.close
+  print('Report saved to: ' + args.output)
 
